@@ -14,6 +14,7 @@ typedef struct Dragon {
 } Dragon;
 
 void display_player(Player player_1);
+void display_player(Player player_1);
 void display_dragon(Dragon dragon_1);
 void init_characters(Player *player_1, Dragon *dragon_1);
 int roll_dice(int size);
