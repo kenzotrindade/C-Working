@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -g -lm
 TARGET = main
-SRCS = bataille_navale.c
+SRCS = mortpion.c
 all:
 	$(CC) $(CFLAGS) $(SRCS) -o $(TARGET)
 
