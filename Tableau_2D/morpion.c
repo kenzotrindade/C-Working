@@ -4,15 +4,33 @@
 
 void print_tab(char **tab, int size);
 char** create_table(int size);
+void player_round(char **tab);
+void bot_round(char **tab);
+int check_win(char** tab);
+
 
 void print_tab(char **tab, int size) {
-    for (int i=0;i<size;i++) {
-        for (int j=0;j<size;j++) {
-            printf("%4c", tab[i][j]);
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            printf(" %c ", tab[i][j]);
+            if (j < size - 1) {
+                printf("|");
+            }
         }
         printf("\n");
+
+        if (i < size - 1) {
+            for (int j = 0; j < size; j++) {
+                printf("---");
+                if (j < size - 1) {
+                    printf("|");
+                }
+            }
+            printf("\n");
+        }
     }
 }
+
 
 char** create_table(int size) {
 
@@ -24,7 +42,7 @@ char** create_table(int size) {
 
     for (int i=0;i<size;i++) {
         for (int j=0;j<size;j++) {
-            array[i][j] = '.';
+            array[i][j] = ' ';
         }
     }
     print_tab(array, size);
@@ -42,7 +60,7 @@ void player_round(char **tab) {
     printf("Veuillez entrez la position de votre jeu (y) : ");
     scanf("%d", &y);
 
-    if (tab[x - 1][y - 1] == '.') {
+    if (tab[x - 1][y - 1] == ' ') {
         tab[x - 1][y - 1] = 'X';
         print_tab(tab, 3);
     } else {
@@ -55,7 +73,7 @@ void bot_round(char **tab) {
     for (int t = 0; t < 100 && !checkup; t++) {
         int x = rand() % 3;
         int y = rand() % 3;
-        if (tab[x][y] == '.') {
+        if (tab[x][y] == ' ') {
             tab[x][y] = 'O';
             checkup = 1;
         }
