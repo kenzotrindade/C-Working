@@ -1,7 +1,8 @@
 CC = gcc
 CFLAGS = -Wall -g -lm
 TARGET = main
-SRCS = mortpion.c
+SRCS = chained_list.c
+
 all:
 	$(CC) $(CFLAGS) $(SRCS) -o $(TARGET)
 

@@ -11,7 +11,7 @@ int check_win(char** tab);
 
 void print_tab(char **tab, int size) {
     for (int i=0; i<size;i++) {
-        for (intj= 0;j<size;j++) {
+        for (int j= 0;j<size;j++) {
             printf(" %c ", tab[i][j]);
             if (j<size-1) {
                 printf("|");
@@ -81,30 +81,58 @@ void bot_round(char **tab) {
     print_tab(tab, 3);
 }
 
+int check_lines(char **tab, int i, char sym) {
+    if (tab[i][0] == sym && tab[i][1] == sym && tab[i][2] == sym){
+        return 1;
+    }
+    return 0;
+}
+
+int check_column(char **tab, int j, char sym) {
+    if (tab[0][j] == sym && tab[1][j] == sym && tab[2][j] == sym){
+        return 1;
+    }
+    return 0;
+}
+
+int check_diag1(char **tab, char sym) {
+    if (tab[0][0] == sym && tab[1][1] == sym && tab[2][2] == sym){
+        return 1;
+    }
+    return 0;
+}
+
+int check_diag2(char **tab, char sym) {
+    if (tab[0][2] == sym && tab[1][1] == sym && tab[2][0] == sym){
+        return 1;
+    }
+    return 0;
+}
+
 int check_win(char** tab) {
     for (int i=0;i<3;i++) {
         for (int j=0;j<3;j++) {
-            if (tab[i][0] == 'X' && tab[i][1] == 'X' && tab[i][2] == 'X') {
+            if (check_lines(tab, i, 'X') == 1) {
                 return 1;
-            } else if (tab[i][0] == 'O' && tab[i][1] == 'O' && tab[i][2] == 'O') {
+            } else if (check_lines(tab, i, 'O') == 1) {
                 return 2;
             }
 
-            if (tab[0][j] == 'X' && tab[1][j] == 'X' && tab[2][j] == 'X') {
+            if (check_column(tab, i, 'X') == 1) {
                 return 1;
-            } else if (tab[0][j] == 'O' && tab[1][j] == 'O' && tab[2][j] == 'O') {
+            } else if (check_column(tab, i, 'O') == 1) {
                 return 2;
             }
 
-            if (tab[0][0] == 'X' && tab[1][1] == 'X' && tab[2][2] == 'X') {
+            if (check_diag1(tab, 'X') == 1) {
                 return 1;
-            } else if (tab[0][0] == 'O' && tab[1][1] == 'O' && tab[2][2] == 'O') {
+            } else if (check_diag1(tab, 'O') == 1) {
                 return 2;
             }
 
-            if (tab[0][2] == 'X' && tab[1][1] == 'X' && tab[2][0] == 'X') {
+            if (check_diag2(tab, 'X') == 1) {
                 return 1;
-            } else if (tab[0][2] == 'O' && tab[1][1] == 'O' && tab[2][0] == 'O') {
+            } else if (check_diag2(tab, 'O') == 1) {
                 return 2;
             }
         }
