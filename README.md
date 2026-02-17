@@ -42,8 +42,7 @@ Through these various exercises, I have explored and implemented:
 | :--- | :--- |
 | **C Language (C99/C11)** | Core implementation for all exercises. |
 | **GCC** | Main compiler for building the binaries. |
-| **Make (Makefile)** | Automation of compilation for larger sub-projects. |
-| **Valgrind** | Memory profiling to ensure leak-free code. |
+| **Make (Makefile)** | Automation of compilation for larger sub-projects. ||
 
 ---
 
@@ -61,7 +60,7 @@ The project is organized into several modules, including:
 
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/kenzotrindade/C-Working.git](https://github.com/kenzotrindade/C-Working.git)
+   git clone https://github.com/kenzotrindade/C-Working.git
 2. Navigate to a specific project folder (e.g., RPG):
    ```bash
    cd C-Working/RPG
@@ -71,3 +70,4 @@ The project is organized into several modules, including:
 4. Run the executable:
    ```bash
    ./my_program
+
